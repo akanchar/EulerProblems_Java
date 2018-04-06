@@ -12,15 +12,8 @@ public class Euler36 {
     {
         long sum = 0;
         for(int i = 0; i <= 1000000; i++)
-        {
             if(bothPalindrome(i + "", binary(i)))
-            {
                 sum += i;
-                System.out.println(i);
-                System.out.println(binary(i));
-
-            }
-        }
         System.out.println("The sum of all numbers, less than one million, which are palindromic in base 10 and base 2 is " + sum);
     }
     private static boolean bothPalindrome(String decimalNumber, String binaryNumber) {
