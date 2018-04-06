@@ -14,7 +14,7 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
  */
 public class Euler28 {
-    final static int sizeOfArray = 1001;
+    private final static int sizeOfArray = 1001;
     public static void main(String[] args)
     {
         int[][] numbers = new int[sizeOfArray][sizeOfArray];

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class Euler29 {
-    final static int start = 2, end = 100;
+    private final static int start = 2, end = 100;
     public static void main(String[] args)
     {
         ArrayList<String> uniqueNumbers = new ArrayList<>();
