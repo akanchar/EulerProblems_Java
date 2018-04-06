@@ -13,8 +13,6 @@ The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
  */
 
-import java.util.ArrayList;
-
 public class Euler30 {
     final private static int power = 5;
     public static void main(String[] args)
@@ -29,7 +27,6 @@ public class Euler30 {
                 int number = Integer.parseInt(string.charAt(string.length() - j - 1) + "");
                 sum = sum + (int)Math.pow(number,power);
             }
-
             if(sum == i)
                 totalSum += sum;
         }
