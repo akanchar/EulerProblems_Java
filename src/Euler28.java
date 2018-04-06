@@ -1,3 +1,5 @@
+import javax.annotation.processing.SupportedSourceVersion;
+
 /*
 Starting with the number 1 and moving to the right in a clockwise direction a 5 by 5 spiral is formed as follows:
 
@@ -12,19 +14,16 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
  */
 public class Euler28 {
-    final static int sizeOfArray = 5;
-    enum directions {
-        right, down, left, up
-    }
+    final static int sizeOfArray = 1001;
     public static void main(String[] args)
     {
         int[][] numbers = new int[sizeOfArray][sizeOfArray];
-        int startNumber = sizeOfArray / 2, count = 0, arrayTraverseCount = 0, col = sizeOfArray, row = sizeOfArray, number = 1;
+        int startNumber = sizeOfArray / 2, count = 0, arrayTraverseCount = 0, col, row, number = 1, times = 1, sum = 0;
         numbers[startNumber][startNumber] = 1;
 
         String[] directions = {"right", "down", "left", "up"};
         col = row = startNumber;
-        for(int i = 0; i < sizeOfArray * sizeOfArray; i++)
+        for(int i = 0; i < sizeOfArray * sizeOfArray - 1; i++)
         {
             //Calculate the new index of the 2-d array to insert number
             switch (directions[arrayTraverseCount]) {
@@ -53,17 +52,24 @@ public class Euler28 {
                     numbers[row][col] = number;
                     break;
             }
-
-            arrayTraverseCount = arrayTraverseCount == 3 ? 0 : arrayTraverseCount + 1;
+            if(count == times)
+                arrayTraverseCount = arrayTraverseCount == 3 ? 0 : arrayTraverseCount + 1;
+            if(count == 2 * times)
+            {
+                count = 0;
+                times++;
+                arrayTraverseCount = arrayTraverseCount == 3 ? 0 : arrayTraverseCount + 1;
+            }
         }
-        System.out.println(numbers[startNumber][startNumber]);
-        for(int i = 0; i < numbers.length; i++)
+
+        for(int k = 0; k < numbers.length; k++)
         {
             for(int j = 0; j < numbers.length; j++)
             {
-                System.out.print(numbers[i][j] + "  ");
+                if(k == j || j + k == sizeOfArray - 1)
+                    sum += numbers[k][j];
             }
-            System.out.println();
         }
+        System.out.println("The sum of the numbers on the diagonals in a 1001 by 1001 spiral formed is " + sum);
     }
 }
