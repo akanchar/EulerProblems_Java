@@ -1,7 +1,6 @@
-public class Euler32
-{
+public class Euler33Incomplete {
     public static void main(String[] args)
     {
-        
+
     }
 }
