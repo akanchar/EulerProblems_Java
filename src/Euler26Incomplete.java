@@ -17,7 +17,7 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-public class Euler26
+public class Euler26Incomplete
 {
     public static void main(String[] args)
     {
