@@ -1,4 +1,4 @@
-public class Euler40 {
+public class Euler40Incomplete {
     public static void main(String[] args)
     {
         String string = "";
