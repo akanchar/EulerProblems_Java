@@ -12,15 +12,15 @@ HINT: Some products can be obtained in more than one way so be sure to only incl
 
 import java.util.ArrayList;
 
-public class Euler32Incomplete
+public class Euler32CompletedNew
 {
     public static void main(String[] args)
     {
         boolean isPanDigital;
         long sum = 0;
-        A: for(long i = 3; i <= 70000; i++)
+        A: for(long i = 2; i <= 20000; i++)
         {
-            for(long j = 2; j < i; j++)
+            for(long j = 2; j < i/2; j++)
             {
                 isPanDigital = true;
                 if(i % j == 0)
@@ -29,16 +29,15 @@ public class Euler32Incomplete
                     ArrayList<Integer> digits = new ArrayList<>();
                     for(int k = 0; k < string.length(); k++)
                     {
-                        if(digits.contains((Integer.parseInt(string.charAt(k) + ""))))
+                        if(digits.contains((Integer.parseInt(string.charAt(k) + ""))) || Integer.parseInt(string.charAt(k) + "") == 0)
                         {
                             isPanDigital = false;
                             break;
                         }
                         digits.add(Integer.parseInt(string.charAt(k) + ""));
                     }
-                    if(isPanDigital)
+                    if(isPanDigital && digits.size() == 9)
                     {
-                        System.out.println(i + "  " + j);
                         sum += i;
                         continue A;
                     }
